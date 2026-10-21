@@ -36,9 +36,9 @@ check_uv:
 		echo "$(RED)Could not determine uv version from 'uv --version'.$(RESET)"; \
 		exit 1; \
 	fi; \
-	if [ "$$(printf '%s\n' "$(MIN_UV_VERSION)" "$$UV_VERSION" | sort -V | head -n1)" != "$(MIN_UV_VERSION)" ]; then \
+	if ! awk -v actual="$$UV_VERSION" -v minimum="$(MIN_UV_VERSION)" 'BEGIN { split(actual, a, /[.]/); split(minimum, m, /[.]/); for (i = 1; i <= 3; i++) { if ((a[i] + 0) < (m[i] + 0)) exit 1; if ((a[i] + 0) > (m[i] + 0)) exit 0 } exit 0 }'; then \
 		echo "$(RED)uv $$UV_VERSION is too old - this repo needs uv >= $(MIN_UV_VERSION) (eMudhra CA root-store fix, GHSA-hq85-5cpj-mr62).$(RESET)"; \
-		echo "$(RED)Fix: 'uv self update' or 'uv tool install --force uv>=$(MIN_UV_VERSION)'.$(RESET)"; \
+		echo "$(RED)Fix: 'uv self update' or 'uv tool install --force \"uv>=$(MIN_UV_VERSION)\"'.$(RESET)"; \
 		exit 1; \
 	fi
 

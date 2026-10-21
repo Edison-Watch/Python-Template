@@ -3,7 +3,7 @@
 
 This project uses uv for python dependency management instead of pip. To check dependencies, check `pyproject.toml` (and the `uv.lock` lockfile) not `requirements.txt`. uv is effectively cargo for python, with a rust-based backend for blazing fast env & dependency management. 
 
-Don't use `pip install`, always use `uv sync` instead of `pip install -r requirements.txt` and `uv add <package_name> to add a new dependency`. Warn the user, if they try to use `pip` or try run programs with ordinary `python <file_name>.py`, and instead encourage them to run it using `uv run python <file_name>.py` after synchronizing with `uv sync`.
+Don't use `pip install`, always use `uv sync` instead of `pip install -r requirements.txt` and `uv add <package_name>` to add a new dependency. Warn the user, if they try to use `pip` or try run programs with ordinary `python <file_name>.py`, and instead encourage them to run it using `uv run python <file_name>.py` after synchronizing with `uv sync`.
 
 For reference:
 - `uv sync`: Ensure it is using the correct python venv
