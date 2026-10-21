@@ -24,20 +24,15 @@ jobs:
         git submodule init
         git submodule update
   
-    - name: Read Python version
-      run: echo "PYTHON_VERSION=$(cat .python-version | tr -d '\n')" >> $GITHUB_ENV
     - run: |
         echo "Log Level: ${{ github.event.inputs.log_level }}"
         echo "Environment: ${{ github.event.inputs.environment }}"
-    - name: Set up Python
-      uses: actions/setup-python@v5
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
       with:
-        python-version: ${{ env.PYTHON_VERSION }}
-    - name: Install Rye
-      uses: eifinger/setup-rye@v4
-      with:
-        version: 'latest'
+        version: "0.13.4"
+        enable-cache: true
     - name: Run Vulture
       run: |
-        rye sync
+        uv sync --locked
         make vulture
