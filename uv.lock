@@ -1344,7 +1344,7 @@ requires-dist = [
     { name = "google-genai", specifier = ">=1.15.0" },
     { name = "human-id", specifier = ">=0.2.0" },
     { name = "langfuse", specifier = ">=2.60.5" },
-    { name = "litellm", specifier = ">=1.70.0" },
+    { name = "litellm", specifier = ">=1.70.0,!=1.82.7,!=1.82.8,!=1.107.0" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "pillow", specifier = ">=11.2.1" },
     { name = "pytest", specifier = ">=8.3.3" },
