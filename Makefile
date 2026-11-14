@@ -7,7 +7,7 @@ RESET=\033[0m
 
 PYTHON=uv run python
 TEST=uv run pytest
-MIN_UV_VERSION=0.13.4
+MIN_UV_VERSION=0.13.5
 PROJECT_ROOT=.
 
 ########################################################
