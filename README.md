@@ -48,7 +48,7 @@
 
 ## Requirements
 
-- [uv](https://docs.astral.sh/uv/) >= 0.13.4
+- [uv](https://docs.astral.sh/uv/) >= 0.13.5
   ```
   curl -LsSf https://astral.sh/uv/install.sh | sh
   ```
